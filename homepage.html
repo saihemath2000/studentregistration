@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="homepage.css" />
+    <title>Homepage</title>
+    <style>
+      .btn1 {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition: 0.3s;
+      }
+
+      .btn1:hover {
+        background-color: #3252a8;
+        color: white;
+      }
+      body {
+        font-size: 20px;
+      }
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+      }
+      .imagediv {
+        background-image: url("/registration/laptop.jpg");
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      .text {
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 0;
+        right: 50%;
+        text-align: center;
+        top: 40%;
+      }
+      .text:hover {
+        color: red;
+      }
+      .buttondiv {
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 70%;
+        right: 0%;
+        top: 40%;
+      }
+      .card:hover {
+        box-shadow: 8px 8px 8px blue;
+        transform: scale(1.2);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-light"
+      style="height: 80px"
+    >
+      <a class="navbar-brand" href="#" style="color: black">OLS</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="color: black"
+            >
+              Courses
+            </a>
+            <div
+              class="dropdown-menu mega-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <div class="row">
+                <div class="col-8">
+                  <h1><b>Courses</b></h1>
+                </div>
+                <div class="col-4">
+                  <button class="btn1">View All Courses</button>
+                </div>
+              </div>
+              <hr
+                style="
+                  height: 2px;
+                  border-width: 0;
+                  color: gray;
+                  background-color: gray;
+                "
+              />
+              <div class="row">
+                <div class="col-6">
+                  <p><a style="color: black" href="">Programming in C</a></p>
+                  <p><a style="color: black" href="">Javascript</a></p>
+                  <p><a style="color: black" href="">Html</a></p>
+                  <p><a style="color: black" href="">Python</a></p>
+                </div>
+                <div class="col-6">
+                  <p><a style="color: black" href="">Java</a></p>
+                  <p><a style="color: black" href="">C++</a></p>
+                  <p><a style="color: black" href="">Css</a></p>
+                  <p><a style="color: black" href="">Django</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="text-right">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                style="margin-left: 940px"
+                onclick="window.location.href = './signup_and_signin_folder/signin.php'"
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                style="margin-left: 20px"
+                onclick="window.location.href = './signup_and_signin_folder/signup.php'"
+              >
+                Register
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="imagediv">
+      <div class="text">
+        <center><h1>Start Learning with OLS</h1></center>
+      </div>
+      <div class="buttondiv">
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search more courses"
+            aria-label="Search"
+          />
+          <button
+            type="submit"
+            class="
+              btn-inverse-brand
+              form-submit
+              edit-submit
+              btn btn-brand btn-primary
+            "
+            style="font-size: 20px"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+    <br /><br />
+    <h1 style="margin-left: 20px">Explore Top Courses</h1>
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div
+            class="card"
+            style="
+              width: 220px;
+              margin-left: 30px;
+              margin-top: 20px;
+              height: 300px;
+            "
+          >
+            <img
+              class="card-img-top h-50"
+              src="./images/c_image.png"
+              width="50px"
+              height="200px"
+            />
+            <div class="card-body px-3">
+              <h5 class="card-title">Programming in C</h5>
+              <a href="#" style="text-decoration: none">Course</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div
+            class="card"
+            style="
+              width: 220px;
+              margin-left: 20px;
+              margin-top: 20px;
+              height: 300px;
+            "
+          >
+            <img
+              class="card-img-top h-50"
+              src="./images/java_image.jpg"
+              width="50px"
+              height="200px"
+            />
+            <div class="card-body px-3">
+              <h5 class="card-title">Java</h5>
+              <a href="#" style="text-decoration: none">Course</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div
+            class="card"
+            style="
+              width: 220px;
+              margin-left: 20px;
+              margin-top: 20px;
+              height: 300px;
+            "
+          >
+            <img
+              class="card-img-top h-50"
+              src="./images/js_image.png"
+              width="50px"
+              height="200px"
+            />
+            <div class="card-body px-3">
+              <h5 class="card-title">Javascript</h5>
+              <a href="#" style="text-decoration: none">Course</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div
+            class="card"
+            style="
+              width: 220px;
+              margin-left: 20px;
+              margin-top: 20px;
+              height: 300px;
+            "
+          >
+            <img
+              class="card-img-top h-50"
+              src="./images/html_image.png"
+              width="50px"
+              height="200px"
+            />
+            <div class="card-body px-3">
+              <h5 class="card-title">html</h5>
+              <a href="#" style="text-decoration: none">Course</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

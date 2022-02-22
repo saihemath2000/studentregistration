@@ -1,0 +1,147 @@
+<html>
+ <head>
+   <title>Create a course</title>
+</head>
+<body>
+    <div id="add"></div>
+</body>
+<script>
+    let j=3;
+    let idvalue="id";
+    function forsubtopics(count,temp){
+      for(let k=1;k<=count;k++){
+        var br = document.createElement('br');  
+        var span3=document.createElement('span');
+        var label5 = document.createElement('label');
+        label5.setAttribute('for','topicname');
+        label5.innerHTML='topicname';
+        var input5 =document.createElement('input');
+        input5.setAttribute('id',idvalue+temp);
+        input5.setAttribute('type','text');
+        input5.setAttribute('name','topicname');
+        input5.setAttribute('placeholder','enter topic');
+        span3.appendChild(label5);
+        span3.appendChild(input5);
+        temp=temp+1; 
+        var span4=document.createElement('span');
+        var label6 = document.createElement('label');
+        label6.setAttribute('for','enterlink');
+        label6.innerHTML='link';
+        var input6 =document.createElement('input');
+        input6.setAttribute('id',idvalue+temp);
+        input6.setAttribute('type','text');
+        input6.setAttribute('name','enterlink');
+        input6.setAttribute('placeholder','enter link');
+        span4.appendChild(label6);
+        span4.appendChild(input6);
+        span4.appendChild(br);
+        fieldset.appendChild(span3);
+        fieldset.appendChild(span4);
+        label5.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");
+        label6.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");
+        span3.setAttribute("style","display:inline-block;margin:0 10px 10px 0");
+        span4.setAttribute("style","display:inline-block;margin:0 10px 10px 0");
+        temp=temp+1;
+      }
+    }
+    function forchapter(count){
+        for(let i=1;i<=count;i++){
+           var br = document.createElement('br');
+           var span1=document.createElement('span');
+           var label3 = document.createElement('label');
+           label3.setAttribute('for','chaptername');
+           label3.innerHTML="chaptername";
+           var input3 =document.createElement('input');
+           input3.setAttribute('id',idvalue+j);
+           input3.setAttribute('type','text');
+           input3.setAttribute('name','chaptername');
+           input3.setAttribute('placeholder','enter chaptername');
+           span1.appendChild(label3);
+           span1.appendChild(input3);
+           j=j+1; 
+           var span2=document.createElement('span');
+           var label4 = document.createElement('label');
+           label4.setAttribute('for','nooftopics');
+           label4.innerHTML="nooftopics";
+           var input4 =document.createElement('input');
+           input4.setAttribute('id',idvalue+j);
+           input4.setAttribute('type','text');
+           input4.setAttribute('name','nooftopics');
+           input4.setAttribute('placeholder','enter nooftopics');
+           span2.appendChild(label4);
+           span2.appendChild(input4);
+           span2.appendChild(br);
+           fieldset.appendChild(span1);
+           fieldset.appendChild(span2);
+           label3.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");
+           label4.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");  
+           span1.setAttribute("style","display:inline-block;margin:0 10px 10px 0");
+           span2.setAttribute("style","display:inline-block;margin:0 10px 10px 0");
+           j=j+1; 
+           //add br afterwards
+           var count2=document.getElementById(idvalue+(j-1));
+           var count2=2;
+           forsubtopics(count2,j);
+           j=j+(count2*2);
+
+        }
+    }
+    var mydiv = document.getElementById('add');
+    //form element
+    var form = document.createElement('form');
+    form.setAttribute('id',"createcourse");
+    form.setAttribute('method',"POST");
+    form.setAttribute('action','');
+    //fieldset tag
+    var fieldset = document.createElement('fieldset');
+    //legend tag
+    var legend = document.createElement('legend');
+    legend.innerHTML='create a course';   
+    //label for course
+    var label1 = document.createElement('label');
+    label1.setAttribute('for','coursename');
+    label1.innerHTML='course';
+    //input for label1
+    var input1 = document.createElement('input');
+    input1.setAttribute('id','id1');
+    input1.setAttribute('name','coursename');
+    input1.setAttribute('type','text');
+    input1.setAttribute('placeholder','enter course');
+    //label for noofchapters
+    var label2 = document.createElement('label');
+    label2.setAttribute('for','noofchapters');
+    label2.innerHTML='noofchapters';
+    //input for label1
+    var input2 = document.createElement('input');
+    input2.setAttribute('id','id2');
+    input2.setAttribute('name','noofchapters');
+    input2.setAttribute('type','text');
+    input2.setAttribute('placeholder','enter no of chapters');
+    //br tag
+    var br = document.createElement('br');
+    //input2.appendChild(br);
+
+    fieldset.appendChild(legend);
+    fieldset.appendChild(label1);
+    fieldset.appendChild(input1);
+    fieldset.appendChild(label2);
+    fieldset.appendChild(input2);
+    fieldset.appendChild(br);
+    form.appendChild(fieldset);
+    mydiv.appendChild(form);   
+    form.setAttribute("style","width: 640px; margin: 0 auto; padding: 30px 0 30px 0;");
+    fieldset.setAttribute("style","padding: 0 2em 2em 4em;");
+    label1.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");
+    label2.setAttribute("style","display: block;padding: 1.5em 0 0 0;font-weight: bold;");
+    var count1 =document.getElementById('id2').value;
+    var count1=2;
+    var input7 = document.createElement('input');
+    input7.setAttribute('type','submit');      
+    input7.setAttribute('name','createForm');      
+    input7.setAttribute('class','button');      
+    input7.setAttribute('value','createform');
+    forchapter(count1);
+    fieldset.appendChild(input7); 
+    input7.setAttribute("style","display:block;");
+</script>
+</html>
