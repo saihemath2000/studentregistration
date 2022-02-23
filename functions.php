@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-// connect to database
+// connect to databa
 $db = mysqli_connect('localhost', 'root', '', 'multi_login');
 
 // variable declaration
