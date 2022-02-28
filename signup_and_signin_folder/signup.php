@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form by Colorlib</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         input{
             font-size:20px;
@@ -72,7 +73,7 @@
                             
                             <div class="form-group">
                                 <div class="row">
-                                <label for="pass"><i style="font-size:22px;" class="zmdi zmdi-lock"></i></label>
+                                <label for="pass"><i class="fa fa-lock" style="font-size:24px"></i></label>
                                 <input 
                                     type="password" 
                                     name="pass" 
@@ -110,15 +111,17 @@
                                   <input type="text" class="form-control" name="City" id="inputCity" placeholder="city" required>
                                 </div>
                                 <div class="form-group col-md-4">
+                                    <label style="font-size:22px;"><i class="zmdi zmdi-city"></i></label>
                                     <input type="text" class="form-control" name="State" id="inputCity" placeholder="state" required>
                                 </div>
                                 <div class="form-group col-md-2">
+                                   <label style="font-size:22px;"><i class="fa fa-map-pin" aria-hidden="true"></i></label> 
                                   <input type="text" class="form-control" name="Zipcode" id="inputZip" placeholder="enter zip">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="photo" style="font-size:18px;">Upload your photo</label></br></br></br>
-                                <input type="file" class="form-control" name="photo" id="customFile" style="font-size:16px;"/>
+                                <input type="file" class="form-control-file" name="photo" id="customFile" style="font-size:16px;border-bottom:none;"/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
