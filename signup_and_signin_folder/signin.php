@@ -1,7 +1,7 @@
 <?php include('../functions.php') ?>
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
-include('facebook-login/facebook-login-setup.php');
+// include('facebook-login/facebook-login-setup.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
