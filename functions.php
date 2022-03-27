@@ -179,8 +179,8 @@ function login(){
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-
-				header('location: ../homepage.html');
+                $profilename = $_SESSION['user']['name']; 
+				header('location: ../homepage.php?name='.$profilename.'');
 			}
 		}else {
 			array_push($errors, "Wrong name/password combination");

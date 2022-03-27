@@ -1,3 +1,11 @@
+<?php
+ if(isset($_GET['name'])){
+  $name = $_GET['name'];  
+ }
+ else{
+   $name='';
+ } 
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,11 +16,12 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">    
     <link rel="stylesheet" href="homepage.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+
     <title>Homepage</title>
     <style>
       .btn1 {
@@ -72,16 +81,14 @@
         box-shadow: 8px 8px 8px blue;
         transform: scale(1.2);
       }
-
     </style>
   </head>
-
   <body>
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-light"
       style="height: 80px"
     >
-      <a class="navbar-brand" href="#" style="color: black">OLS</a>
+      <a class="navbar-brand" href="#" style="color: black"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -146,26 +153,28 @@
             </div>
           </li>
           <li>
-            <div class="text-right">
               <button
                 type="button"
-                class="btn btn-secondary"
-                style="margin-left: 940px"
+                class="btn btn-secondary pull-right"
+                style="margin-left:800px;"
                 data-toggle="modal" 
                 data-target="#myModal1"  
               >
                 Login
               </button>
+            </li>
+             <li>
               <button
                 type="button"
                 class="btn btn-danger"
-                style="margin-left: 20px"
+                style="margin-left:17px;"
                 data-toggle="modal" 
                 data-target="#myModal"  
               >
                 Register
               </button>
-            </div>
+            </li>
+            <li>
             <div class="modal" id="myModal">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -203,12 +212,27 @@
               </div>
             </div>
           </li>
+          <div class="dropdown" style="margin-left:100px;">
+            <button 
+            type="button" 
+            class="btn dropdown-toggle" 
+            data-toggle="dropdown"
+            style="width:120px;font-size:20px;">
+              My Account
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="studentprofile.php?name=<?php echo $name; ?>">Profile</a>
+              <a class="dropdown-item" href="#">My Courses</a>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </div>
+        </div>
         </ul>
       </div>
     </nav>
     <div class="imagediv">
       <div class="text">
-        <center><h1>Start Learning with OLS</h1></center>
+        <center><h1>Start Learning</h1></center>
       </div>
       <div class="buttondiv">
         <form class="form-inline my-2 my-lg-0">
