@@ -222,8 +222,7 @@
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="studentprofile.php?name=<?php echo $name; ?>">Profile</a>
-              <a class="dropdown-item" href="#">My Courses</a>
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="./signout.php">Logout</a>
             </div>
           </div>
         </div>
