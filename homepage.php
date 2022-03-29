@@ -5,6 +5,12 @@
  else{
    $name='';
  } 
+ $db = mysqli_connect("localhost", "root", "", "course_info");
+if (!$db) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$sql1 = "SELECT * from courseinstructors";
+$result = mysqli_query($db, $sql1);
 ?>
 <!DOCTYPE html>
 <html>
@@ -88,20 +94,9 @@
       class="navbar navbar-expand-lg navbar-dark bg-light"
       style="height: 80px"
     >
-      <a class="navbar-brand" href="#" style="color: black"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <img src="./mylogo.png"/ width="90px" height="90px" style="margin-top:5px;">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a
@@ -125,7 +120,7 @@
                   <h1><b>Courses</b></h1>
                 </div>
                 <div class="col-4">
-                  <button class="btn1">View All Courses</button>
+                  <a href="#allcourses"><button class="btn1">View All Courses</button></a>
                 </div>
               </div>
               <hr
@@ -138,17 +133,25 @@
               />
               <div class="row">
                 <div class="col-6">
-                  <p><a style="color: black" href="">Programming in C</a></p>
-                  <p><a style="color: black" href="">Javascript</a></p>
-                  <p><a style="color: black" href="">Html</a></p>
-                  <p><a style="color: black" href="">Python</a></p>
+                  <?php
+                    $count=0;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      if($count==4){
+                        break;
+                      }
+                      else{
+                        echo '<p><a style="color:black" href="">'.$row['title'].'</a></p>';
+                        $count=$count+1;
+                      }
+                    }
+                  ?>
                 </div>
-                <div class="col-6">
+                <!-- <div class="col-6">
                   <p><a style="color: black" href="">Java</a></p>
                   <p><a style="color: black" href="">C++</a></p>
                   <p><a style="color: black" href="">Css</a></p>
                   <p><a style="color: black" href="">Django</a></p>
-                </div>
+                </div> -->
               </div>
             </div>
           </li>
@@ -156,7 +159,7 @@
               <button
                 type="button"
                 class="btn btn-secondary pull-right"
-                style="margin-left:800px;"
+                style="margin-left:800px;margin-top:5px;"
                 data-toggle="modal" 
                 data-target="#myModal1"  
               >
@@ -167,7 +170,7 @@
               <button
                 type="button"
                 class="btn btn-danger"
-                style="margin-left:17px;"
+                style="margin-left:17px;margin-top:5px;"
                 data-toggle="modal" 
                 data-target="#myModal"  
               >
@@ -212,7 +215,7 @@
               </div>
             </div>
           </li>
-          <div class="dropdown" style="margin-left:100px;">
+          <div class="dropdown" style="margin-left:10px;">
             <button 
             type="button" 
             class="btn dropdown-toggle" 
@@ -231,7 +234,7 @@
     </nav>
     <div class="imagediv">
       <div class="text">
-        <center><h1>Start Learning</h1></center>
+        <center><h1>Start Learning with </h1></center>
       </div>
       <div class="buttondiv">
         <form class="form-inline my-2 my-lg-0">
@@ -259,7 +262,7 @@
     <br /><br />
     <h1 style="margin-left: 20px">Explore Top Courses</h1>
     <br />
-    <div class="container-fluid">
+    <div class="container-fluid" id="allcourses">
       <div class="row">
         <div class="col-3">
           <div

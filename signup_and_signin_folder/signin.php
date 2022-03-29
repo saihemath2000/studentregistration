@@ -38,8 +38,8 @@ error_reporting(E_ALL & ~E_NOTICE);
                         <form method="POST" class="register-form" id="login-form" action="signin.php">
                             <?php echo display_error(); ?>
                             <div class="form-group">
-                                <label for="your_name"><i style="font-size:22px;"  class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                <label for="your_email"><i  style="font-size:22px;" class="zmdi zmdi-email"></i></label>
+                                <input type="text" name="your_email" id="your_email" placeholder="Your Email"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i style="font-size:22px;"  class="zmdi zmdi-lock"></i></label>
@@ -49,6 +49,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
+                            <center><p><a href="enter_email.php" style="text-decoration:none;">Forgot your password?</a></p></center></br>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                             </div>

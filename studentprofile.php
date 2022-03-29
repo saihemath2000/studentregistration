@@ -81,7 +81,7 @@ if(isset($_POST['save'])){
         <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
           <div class="container-fluid">
             <!-- Brand -->
-            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">User profile</a>
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">User profile</a>
           </div>
         </nav>
         <!-- Header -->
