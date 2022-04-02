@@ -1,3 +1,4 @@
+<?php include('./functions.php'); ?>
 <?php
  if(isset($_GET['name'])){
   $name = $_GET['name'];  
@@ -52,7 +53,12 @@ $result = mysqli_query($db, $sql1);
       html {
         height: 100%;
         margin: 0;
+        font-family: 'Pacifico', cursive;
       }
+      #asterik:after{
+          content:'*';
+          color:red;
+        }
       .imagediv {
         background-image: url("/registration/laptop.jpg");
         height: 50%;
@@ -83,10 +89,10 @@ $result = mysqli_query($db, $sql1);
         right: 0%;
         top: 40%;
       }
-      .card:hover {
+      /* .card:hover {
         box-shadow: 8px 8px 8px blue;
         transform: scale(1.2);
-      }
+      } */
     </style>
   </head>
   <body>
@@ -94,9 +100,9 @@ $result = mysqli_query($db, $sql1);
       class="navbar navbar-expand-lg navbar-dark bg-light"
       style="height: 80px"
     >
-    <img src="./mylogo.png"/ width="90px" height="90px" style="margin-top:5px;">
+    <img src="./images/teach_and_learn.png" width="90px" height="90px" style="margin-top:5px;">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a
@@ -120,7 +126,7 @@ $result = mysqli_query($db, $sql1);
                   <h1><b>Courses</b></h1>
                 </div>
                 <div class="col-4">
-                  <a href="#allcourses"><button class="btn1">View All Courses</button></a>
+                  <a href="#courses"><button class="btn1">View All Courses</button></a>
                 </div>
               </div>
               <hr
@@ -146,17 +152,12 @@ $result = mysqli_query($db, $sql1);
                     }
                   ?>
                 </div>
-                <!-- <div class="col-6">
-                  <p><a style="color: black" href="">Java</a></p>
-                  <p><a style="color: black" href="">C++</a></p>
-                  <p><a style="color: black" href="">Css</a></p>
-                  <p><a style="color: black" href="">Django</a></p>
-                </div> -->
               </div>
             </div>
           </li>
           <li>
               <button
+                id="login"
                 type="button"
                 class="btn btn-secondary pull-right"
                 style="margin-left:800px;margin-top:5px;"
@@ -168,6 +169,7 @@ $result = mysqli_query($db, $sql1);
             </li>
              <li>
               <button
+                id="register"
                 type="button"
                 class="btn btn-danger"
                 style="margin-left:17px;margin-top:5px;"
@@ -241,10 +243,12 @@ $result = mysqli_query($db, $sql1);
           <input
             class="form-control mr-sm-2"
             type="search"
+            id='search'
             placeholder="Search more courses"
             aria-label="Search"
+            onchange="searchcourses()"
           />
-          <button
+          <!-- <button
             type="submit"
             class="
               btn-inverse-brand
@@ -253,108 +257,64 @@ $result = mysqli_query($db, $sql1);
               btn btn-brand btn-primary
             "
             style="font-size: 20px"
+            onclick="searchcourses()"
           >
             Search
-          </button>
+          </button> -->
         </form>
       </div>
     </div>
     <br /><br />
-    <h1 style="margin-left: 20px">Explore Top Courses</h1>
+    <h1 style="margin-left: 28px">Explore Top Courses</h1>
     <br />
-    <div class="container-fluid" id="allcourses">
-      <div class="row">
-        <div class="col-3">
-          <div
-            class="card"
-            style="
-              width: 220px;
-              margin-left: 30px;
-              margin-top: 20px;
-              height: 300px;
-            "
-          >
-            <img
-              class="card-img-top h-50"
-              src="./images/c_image.png"
-              width="50px"
-              height="200px"
-            />
-            <div class="card-body px-3">
-              <h5 class="card-title">Programming in C</h5>
-              <a href="#" style="text-decoration: none">Course</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div
-            class="card"
-            style="
-              width: 220px;
-              margin-left: 20px;
-              margin-top: 20px;
-              height: 300px;
-            "
-          >
-            <img
-              class="card-img-top h-50"
-              src="./images/java_image.jpg"
-              width="50px"
-              height="200px"
-            />
-            <div class="card-body px-3">
-              <h5 class="card-title">Java</h5>
-              <a href="#" style="text-decoration: none">Course</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div
-            class="card"
-            style="
-              width: 220px;
-              margin-left: 20px;
-              margin-top: 20px;
-              height: 300px;
-            "
-          >
-            <img
-              class="card-img-top h-50"
-              src="./images/js_image.png"
-              width="50px"
-              height="200px"
-            />
-            <div class="card-body px-3">
-              <h5 class="card-title">Javascript</h5>
-              <a href="#" style="text-decoration: none">Course</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div
-            class="card"
-            style="
-              width: 220px;
-              margin-left: 20px;
-              margin-top: 20px;
-              height: 300px;
-            "
-          >
-            <img
-              class="card-img-top h-50"
-              src="./images/html_image.png"
-              width="50px"
-              height="200px"
-            />
-            <div class="card-body px-3">
-              <h5 class="card-title">html</h5>
-              <a href="#" style="text-decoration: none">Course</a>
-            </div>
-          </div>
-        </div>
+    <?php 
+       $path='../sidenavigationbar/courseimages/';
+       $sql2="SELECT * from courseinstructors";
+       $result1 = mysqli_query($db,$sql2);
+       if($result1){}
+       else{
+         mysqli_errno($db);
+       }
+       if (mysqli_num_rows($result1) > 0) {
+        // output data of each row
+        echo '<div class="card-columns" style="height:400px;margin-left:20px;" id="courses">';
+        while ($row = mysqli_fetch_assoc($result1)) {
+            $mycourse=$row['title'];
+            $fortitle=$row['title'];
+            $fortitle=str_replace(' ', '', $fortitle);
+            $fortitle=strtolower($fortitle);
+            $tags[$fortitle]=$row['tags'];
+            echo '<div class="card" name="hello"  id='.$fortitle.' style="width: 25rem;height:20rem;margin-left:10px;">';
+            echo '<img class="card-img-top" src=' . $path . $row['image'] . ' style="height:150px;width:150px;margin-top:5px;" alt="course image">';
+            echo '<div class="card-body" style="width:350px;"><h5 class="card-title">' . $row['title'] . '</h5>
+                    <a href="courseinformation.php?course='.$mycourse.'" class="btn btn-primary">Goto Course</a></div></div>';
+            echo '&nbsp;';
+        }
+        echo '</div>';
+    } else {
+        echo "0 results";
+    }    
+    ?>
+    <br>
+    <h2 style="margin-left:25px;">Contact Form</h2></br>
+    <form method="POST" action='./contact_form.php' style='margin-left:25px;'>
+      <div class="form-group col-4">
+        <label for="name" id="asterik">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
       </div>
-    </div>
-
+      <div class="form-group col-4">
+        <label for="email" id="asterik">Email</label>
+        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group col-6">
+        <label for="message" id="asterik">Message</label>
+        <textarea class="form-control" id="message" rows="3" name="message" required></textarea>
+      </div>
+      <button name="details" type="submit" class="btn btn-primary" style='margin-left:15px;'>Submit</button>
+    </form>
+  </br></br>
+    <?php include('./footer.php'); ?>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -370,5 +330,36 @@ $result = mysqli_query($db, $sql1);
       integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
       crossorigin="anonymous"
     ></script>
+    <script>
+        function searchcourses(){
+            var courses=[];
+            let input = document.getElementById('search').value;
+            input=input.toLowerCase();
+            input=input.split(' ').join('');
+            input='#'+input;
+            var jstags = <?php echo json_encode($tags); ?>;
+            const entries = Object.entries(jstags);
+            for(i=0;i<entries.length;i++){
+                var temp1=entries[i][0];
+                var temp2=entries[i][1];
+                temp2=temp2.split(' ').join('');
+                // console.log(typeof temp2);
+                if(temp2.indexOf(input)!=-1){
+                    courses.push(temp1);       
+                }                
+            }
+            // console.log(courses);
+
+            const e = document.getElementsByName('hello');
+            for(i=0;i<e.length;i++){
+                if(courses.includes(e[i].id)){
+                    e[i].style.display="block";
+                }
+                else{
+                    e[i].style.display="none";
+                }
+            }
+        }
+    </script>
   </body>
 </html>
