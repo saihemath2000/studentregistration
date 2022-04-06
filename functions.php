@@ -8,7 +8,7 @@ $db = mysqli_connect('localhost', 'root', '', 'multi_login');
 $name = "";
 $email    = "";
 $errors   = array(); 
-
+$photoname="";
 // call the register() function if signup is clicked
 if (isset($_POST['signup'])) {
 	register();
@@ -30,10 +30,8 @@ function register(){
     $state= e($_POST['State']);
     $city= e($_POST['City']);
     $zip= e($_POST['Zipcode']);
-	// $photo = e($_POST['photo']);
 	$photoname = $_FILES['photo']['name'];
 	$tmp_name = $_FILES['photo']['tmp_name'];
-	// form validation: ensure that the form is correctly filled
 	if(isset($photoname)) {
 		$folder= '../images/';
 		if (!empty($photoname)){
