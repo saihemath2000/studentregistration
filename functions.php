@@ -73,19 +73,20 @@ function register(){
             echo '<script>alert("User already exists")</script>';
         }
 		else{
+			$comment=0;
 		    $password = md5($pass);//encrypt the password before saving in the database
 		    if(isset($_POST['user_type'])) {
 			    $user_type = e($_POST['user_type']);
 				$current_date = date("Y-m-d H:i:s");
-			    $query = "INSERT INTO users (name, email, user_type, password,phoneno,Address,City,State,Zipcode,photo,created_at) 
-					  VALUES('$name', '$email', '$user_type', '$password','$phone','$address','$city','$state','$zip','$photoname','$current_date')";
+			    $query = "INSERT INTO users (name, email, user_type, password,phoneno,Address,City,State,Zipcode,photo,created_at,comment) 
+					  VALUES('$name', '$email', '$user_type', '$password','$phone','$address','$city','$state','$zip','$photoname','$current_date',$comment)";
 			    mysqli_query($db, $query);
 			    $_SESSION['success']  = "New user successfully created!!";
 			    header('location: ../home.php');
 		    }else{
 				$current_date = date("Y-m-d H:i:s");
-			    $query = "INSERT INTO users (name, email, user_type, password,phoneno,Address,City,State,Zipcode,photo,created_at) 
-					  VALUES('$name', '$email', 'user', '$password','$phone','$address','$city','$state','$zip','$photoname','$current_date')";
+			    $query = "INSERT INTO users (name, email, user_type, password,phoneno,Address,City,State,Zipcode,photo,created_at,comment) 
+					  VALUES('$name', '$email', 'user', '$password','$phone','$address','$city','$state','$zip','$photoname','$current_date',$comment)";
 			    mysqli_query($db, $query);
 			   // get id of the created user
 			    $logged_in_user_id = mysqli_insert_id($db);
